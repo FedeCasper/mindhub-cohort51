@@ -1,14 +1,3 @@
-/* 
-template de la card
- <div class="card border-primary col-10 col-md-5 col-xl-3">
-                     <img class="card-img-top" src="holder.js/100px180/" alt="Title">
-                     <div class="card-body">
-                       <h4 class="card-title">Title</h4>
-                       <p class="card-text">Text</p>
-                     </div>
-                   </div>
-*/
-
 const contendorCards = document.getElementById('contenedorCards')
 
 function crearCard( obj ){
@@ -24,9 +13,12 @@ function crearCard( obj ){
 
 function crearTemplate( listaMentores ){
     let template = ""
-    for (const mentor of listaMentores) {
+    /* for (const mentor of listaMentores) {
           template += crearCard( mentor )
-    }
+    } */
+    const fn = mentor => template += crearCard( mentor )
+    listaMentores.forEach( fn );
+
     return template
 
 }
