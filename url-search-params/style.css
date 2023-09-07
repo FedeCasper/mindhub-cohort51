@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.layout{
+    min-height: 100vh;
+}
+
+.navbar__logo{
+    width: 70px;
+    object-fit: cover;
+}
+
+.banner{
+    height: 400px;
+    object-fit: cover;
+    object-position: 0 10%;
+}
