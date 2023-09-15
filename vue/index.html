@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+     <link rel="stylesheet" href="style.css">
+     <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+     <title>VUE</title>
+</head>
+
+<body class="bg-dark text-white px-3">
+
+     <!-- <h4>Yo no estoy dentro de la app de vue</h4> -->
+
+     <div id="app" class="contenedor">
+          <header>
+               <h1>{{ message }}</h1>
+          </header>
+          {{filtrarPorSearch}}
+          <main class="d-flex flex-column flex-grow-1">
+               <div class="checks">
+                    <!-- CHECKS -->
+                    <div id="contenedorChecks">
+
+                         <!-- <button type="button" v-on:click="saludar">Saludar</button> -->
+
+                    </div>
+                    <!-- SEARCH -->
+                    <label>
+                         <input type="search" placeholder="Ingrese un nombre" v-model="inputSearchValue">
+                         <!-- <button type="button" v-on:click="filtrarPorSearch">Filtrar</button> -->
+                    </label>
+               </div>
+
+               <!-- CARDS -->
+               <div id="contenedorCards" class="d-flex flex-wrap justify-content-center my-5 gap-4">
+                    <div v-for="personaje of filtrados" class="card" style="width: 18rem;">
+                         <img v-if="personaje.Nombre != 'Cletus'" v-bind:src="personaje.Imagen" class="card-img-top object-fit-contain p-4" :alt="personaje.Nombre" style="height: 15rem;">
+                         <img v-else src="./assets/not-found.jpg" class="card-img-top object-fit-contain p-4" :alt="personaje.Nombre" style="height: 15rem;">
+                         <!-- <img v-show="personaje.Nombre != 'Cletus'" v-bind:src="personaje.Imagen" class="card-img-top object-fit-contain p-4" :alt="personaje.Nombre" style="height: 15rem;"> -->
+                         <div class="card-body">
+                              <h5 class="card-title">{{personaje.Nombre}}</h5>
+                              <p class="card-text">{{personaje.Historia}}</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                         </div>
+                    </div>
+               </div>
+          </main>
+
+          <footer class="p-3">
+               <h3>Workshop Vue</h3>
+          </footer>
+
+     </div>
+
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+          crossorigin="anonymous"></script>
+     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+     <script src="./main.js"></script>
+</body>
+
+</html>
